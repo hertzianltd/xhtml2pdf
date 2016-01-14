@@ -178,8 +178,9 @@ def pisaDocument(src, dest=None, path=None, link_callback=None, debug=0,
 
     data = out.getvalue()
 
-    if isinstance(dest, io.BytesIO):
-        data = data.encode("utf-8")
+    # data (bytes obj instance) doesn't have the attribute encode()
+    # if isinstance(dest, io.BytesIO):
+    #     data = data.encode("utf-8")
 
     context.dest.write(data)  # TODO: context.dest is a tempfile as well...
 
